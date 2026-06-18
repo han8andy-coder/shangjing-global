@@ -1157,6 +1157,184 @@ legend {
   color: var(--muted);
 }
 
+/* ── Hero 面板 ── */
+.hero-sub {
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.hero-panel {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 28px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(24, 33, 47, 0.12);
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.panel-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  border-radius: 8px;
+  padding: 0 12px;
+  background: rgba(6, 38, 90, 0.08);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.panel-score {
+  font-size: 46px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.panel-score small {
+  font-size: 18px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.panel-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  border-radius: 6px;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  color: #8b6417;
+  background: #fff3d6;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.panel-bars {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.panel-bar-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.panel-bar-track {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.panel-bar-fill {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.panel-advice {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid rgba(217, 163, 58, 0.36);
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: #fff8ea;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--accent-dark);
+  margin-bottom: 16px;
+}
+
+.panel-advice svg {
+  flex: 0 0 auto;
+  color: var(--accent);
+}
+
+.panel-cta {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 900;
+  transition: background 160ms ease;
+}
+
+.panel-cta:hover {
+  background: var(--brand);
+}
+
+/* ── 四步流程 ── */
+.steps-section {
+  border-top: 1px solid var(--line);
+  padding: 76px 0;
+  background: var(--paper);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin: 40px 0 36px;
+}
+
+.step-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 26px 22px;
+  background: #fff;
+}
+
+.step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step-num {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--line);
+  line-height: 1;
+}
+
+.step-icon {
+  color: var(--brand);
+}
+
+.step-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+.step-card p {
+  color: var(--muted);
+  line-height: 1.75;
+  margin: 0;
+  font-size: 15px;
+}
+
+.steps-cta {
+  text-align: center;
+}
+
 @media (max-width: 960px) {
   nav {
     gap: 16px;
@@ -1205,6 +1383,8 @@ legend {
   .contact-form-card {
     position: static;
   }
+
+  .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .footer-inner {
     grid-template-columns: 1fr 1fr;
@@ -1453,6 +1633,9 @@ legend {
     padding: 16px;
     overflow-wrap: anywhere;
   }
+
+  .steps-grid { grid-template-columns: 1fr; }
+  .hero-panel { padding: 20px; }
 
   .footer-inner {
     grid-template-columns: 1fr;
