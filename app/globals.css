@@ -1065,21 +1065,32 @@ legend {
 
 .footer-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-  gap: 60px;
+  grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
   padding: 52px 0 40px;
   align-items: start;
 }
 
-.footer-logo {
-  display: block;
-  width: 300px;
-  height: 100px;
-  object-fit: cover;
-  object-position: center 44%;
-  margin-bottom: 20px;
+.footer-brand-name {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+
+.footer-brand-name strong {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--ink);
+}
+
+.footer-brand-name span {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
 }
 
 .footer-brand p {
@@ -1094,7 +1105,16 @@ legend {
   max-width: 420px;
 }
 
-.footer-services .footer-label {
+.footer-tagline {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 8px;
+}
+
+.footer-col .footer-label {
   font-size: 12px;
   font-weight: 900;
   color: var(--accent);
@@ -1105,32 +1125,23 @@ legend {
   padding-left: 10px;
 }
 
-.footer-services ul {
+.footer-col ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
-.footer-services li {
-  font-size: 16px;
+.footer-col li a {
+  font-size: 15px;
   color: var(--ink);
   font-weight: 700;
-  padding-left: 14px;
-  position: relative;
+  transition: color 160ms ease;
 }
 
-.footer-services li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
+.footer-col li a:hover {
+  color: var(--brand);
 }
 
 .footer-bottom {
@@ -1196,7 +1207,7 @@ legend {
   }
 
   .footer-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 28px;
   }
 }
@@ -1441,5 +1452,9 @@ legend {
     height: auto;
     padding: 16px;
     overflow-wrap: anywhere;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
   }
 }
