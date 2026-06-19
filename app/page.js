@@ -1,129 +1,109 @@
-import { ArrowRight, Search, BarChart3, Lightbulb, FileText, AlertCircle } from "lucide-react";
+import {
+  ArrowRight, BookOpen, Box, Globe2, MapPinned, Megaphone,
+  SearchCheck, TrendingUp, Wrench,
+} from "lucide-react";
 
-const problems = [
-  {
-    q: "同行有询盘，为什么客户没有主动找你？",
-    a: "多数情况不是产品问题。是客户在决定联系之前，已经在网站上找不到信任感，选择了别人。",
-  },
-  {
-    q: "花了钱做网站，客户看了为什么不联系？",
-    a: "网站是展示给老板看的，不是给客户用的。一个能带来咨询的网站，逻辑完全不一样。",
-  },
-  {
-    q: "怎么判断问题出在哪里，钱花在哪里有效？",
-    a: "不同企业问题不同。先诊断，再决定。盲目重做网站、盲目投广告，往往钱打水漂。",
-  },
+const digitalServices = [
+  { Icon: Globe2, title: "企业网站建设", text: "从品牌定位、内容结构到移动端体验，建设真正能承接客户咨询的网站。" },
+  { Icon: Wrench, title: "网站与SEO优化", text: "优化速度、搜索结构、案例、服务页和联系路径，让流量更容易变成询盘。" },
+  { Icon: Megaphone, title: "Google Ads获客", text: "关键词研究、广告搭建、落地页与转化跟踪，广告费直接支付给Google。" },
+  { Icon: MapPinned, title: "地图商铺运营", text: "按目标地区配置Google商家、Apple Maps、Bing、Yelp或当地地图商铺平台。" },
 ];
 
-const steps = [
-  { Icon: Search, num: "01", title: "发现问题", text: "检查客户入口、网站第一眼、信任感、联系路径，找出最影响询盘的环节。" },
-  { Icon: BarChart3, num: "02", title: "分析损失", text: "量化每个问题可能造成的订单损失，让老板看清改这里值多少钱。" },
-  { Icon: Lightbulb, num: "03", title: "找到机会", text: "从现有资源出发，找出成本最低、收益最快的改善机会，不是让你全部重来。" },
-  { Icon: FileText, num: "04", title: "给出方案", text: "针对企业现状，给出优先级清单和可执行的优化方向。先做什么，再做什么，说清楚。" },
+const printServices = [
+  { Icon: BookOpen, title: "企业样本册与产品目录", text: "策划、文案、设计、排版与印刷一体化，让销售资料更专业、更容易成交。" },
+  { Icon: Box, title: "包装与印刷品", text: "包装盒、标签、贴纸、折页、海报、名片及展会物料，从设计到生产交付。" },
 ];
 
-const scores = [
-  { label: "获客入口", value: 58 },
-  { label: "网站转化", value: 42 },
-  { label: "信任感建立", value: 35 },
-  { label: "AI可见度", value: 28 },
+const process = [
+  ["01", "诊断定位", "了解企业、客户、地区和当前获客问题。"],
+  ["02", "建立入口", "建设网站、地图商铺与可信的品牌资料。"],
+  ["03", "精准引流", "通过Google广告、搜索内容和本地平台触达客户。"],
+  ["04", "持续优化", "跟踪电话、表单和询盘，持续改善转化与成本。"],
 ];
 
 export default function Home() {
   return (
     <>
-      <section className="hero">
-        <div className="hero-copy">
-          <p className="eyebrow">企业订单增长诊断中心</p>
-          <h1>
-            <span>同行有询盘，</span>
-            <span>为什么客户</span>
-            <span>没有主动找你？</span>
-          </h1>
+      <section className="growth-hero page-inner">
+        <div>
+          <p className="eyebrow">网站 · 广告 · 地图商铺 · 品牌印刷</p>
+          <h1>帮企业建立完整的<br /><span>客户增长入口。</span></h1>
           <p className="lead">
-            不先卖建站，不先讲技术。先帮你看清问题出在哪，再决定怎么解决。
+            商镜Global为企业提供网站建设与优化、Google广告、本地地图商铺运营，
+            以及样本册和包装印刷服务，让客户看见你、信任你并主动联系你。
           </p>
           <div className="hero-actions">
-            <a className="button primary" href="/diagnosis">立即免费诊断 <ArrowRight size={18} /></a>
-            <a className="button secondary" href="/cases">查看诊断样板</a>
+            <a className="button primary" href="/contact">咨询增长方案 <ArrowRight size={18} /></a>
+            <a className="button secondary" href="/services">查看全部服务</a>
           </div>
-          <div className="hero-sub">不推销，不绑定。诊断完全免费，结果当场告诉你。</div>
+          <p className="hero-sub">先分析企业和目标市场，再决定网站、广告、地图或印刷从哪一步开始。</p>
         </div>
-
-        <div className="hero-panel">
-          <div className="panel-head">
-            <span className="panel-badge">企业获客诊断报告</span>
-            <strong className="panel-score">47<small>/100</small></strong>
+        <div className="growth-system-card">
+          <p className="system-kicker">SHANGJING GROWTH SYSTEM</p>
+          <h2>从被看见，到被选择</h2>
+          <div className="system-flow">
+            <span><Globe2 size={20} />网站承接</span>
+            <i>→</i>
+            <span><MapPinned size={20} />地图曝光</span>
+            <i>→</i>
+            <span><Megaphone size={20} />广告引流</span>
+            <i>→</i>
+            <span><TrendingUp size={20} />询盘增长</span>
           </div>
-          <div className="panel-label">需要优先改善</div>
-          <div className="panel-bars">
-            {scores.map(({ label, value }) => (
-              <div className="panel-bar" key={label}>
-                <div className="panel-bar-top">
-                  <span>{label}</span>
-                  <b style={{ color: value < 50 ? "#d9a33a" : "#1a60a8" }}>{value}%</b>
-                </div>
-                <div className="panel-bar-track">
-                  <div className="panel-bar-fill" style={{ width: `${value}%`, background: value < 50 ? "#d9a33a" : "#1a60a8" }} />
-                </div>
-              </div>
+          <div className="system-note"><SearchCheck size={18} />按地区、行业与预算组合渠道，不套用同一方案。</div>
+        </div>
+      </section>
+
+      <section className="business-section">
+        <div className="page-inner">
+          <div className="section-title">
+            <p className="eyebrow">数字获客服务</p>
+            <h2>把线上曝光变成真实客户咨询</h2>
+            <p>网站负责承接，地图负责本地发现，广告负责精准流量，数据负责持续改善。</p>
+          </div>
+          <div className="business-grid">
+            {digitalServices.map(({ Icon, title, text }) => (
+              <article className="business-card" key={title}>
+                <Icon size={26} /><h3>{title}</h3><p>{text}</p>
+              </article>
             ))}
           </div>
-          <div className="panel-advice">
-            <AlertCircle size={16} />
-            <span>网站转化和信任感是当前最大阻力</span>
+        </div>
+      </section>
+
+      <section className="business-section print-section">
+        <div className="page-inner">
+          <div className="section-title">
+            <p className="eyebrow">品牌设计与印刷</p>
+            <h2>让线上获客与线下销售使用同一套品牌语言</h2>
+            <p>从网站到样本册，从产品包装到展会资料，让企业每一次出现都专业、统一、可信。</p>
           </div>
-          <a className="panel-cta" href="/diagnosis">开始你的企业诊断 →</a>
+          <div className="print-grid">
+            {printServices.map(({ Icon, title, text }) => (
+              <article className="print-card" key={title}>
+                <Icon size={30} /><div><h3>{title}</h3><p>{text}</p></div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="steps-section">
         <div className="page-inner">
           <div className="section-title center">
-            <p className="eyebrow">诊断流程</p>
-            <h2>四步看清你的订单机会</h2>
-            <p className="lead" style={{ margin: "0 auto 0" }}>
-              不猜，不假设。用结构化方法找出客户在哪一步流失，机会在哪里。
-            </p>
+            <p className="eyebrow">合作流程</p>
+            <h2>一套可以持续增长的获客系统</h2>
           </div>
           <div className="steps-grid">
-            {steps.map(({ Icon, num, title, text }) => (
-              <article key={num} className="step-card">
-                <div className="step-top">
-                  <span className="step-num">{num}</span>
-                  <Icon size={26} className="step-icon" />
-                </div>
-                <h3>{title}</h3>
-                <p>{text}</p>
+            {process.map(([num, title, text]) => (
+              <article className="step-card" key={num}>
+                <span className="step-num">{num}</span><h3>{title}</h3><p>{text}</p>
               </article>
             ))}
           </div>
           <div className="steps-cta">
-            <a className="button primary" href="/diagnosis">开始免费诊断 <ArrowRight size={18} /></a>
-          </div>
-        </div>
-      </section>
-
-      <section className="why-section">
-        <div className="page-inner">
-          <div className="section-title">
-            <p className="eyebrow">为什么订单没有主动来</p>
-            <h2>客户不是没有需求，<br />而是没有选择你。</h2>
-            <p className="lead">
-              今天的客户在联系你之前，会搜索、对比、看网站、判断可信度。如果你的信息不够清楚，客户很可能在联系前就走了。
-            </p>
-          </div>
-          <div className="problem-grid">
-            {problems.map(({ q, a }) => (
-              <article key={q} className="problem-card">
-                <h3>{q}</h3>
-                <p>{a}</p>
-              </article>
-            ))}
-          </div>
-          <div className="why-cta">
-            <a className="button primary" href="/diagnosis">做一次免费诊断 <ArrowRight size={18} /></a>
-            <a className="button secondary" href="/contact">直接咨询</a>
+            <a className="button primary" href="/diagnosis">先做免费诊断 <ArrowRight size={18} /></a>
           </div>
         </div>
       </section>

@@ -1,35 +1,23 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen, Box, Globe2, MapPinned, Megaphone, SearchCheck } from "lucide-react";
 
-const services = [
+const groups = [
   {
-    tag: "免费",
-    title: "企业获客体检",
-    audience: "不知道问题在哪里，只知道客户咨询太少。",
-    items: ["检查网站第一眼印象", "客户入口和来源分析", "内容表达和信任感评估", "联系转化路径诊断"],
-    goal: "让老板先看清问题，再决定是否继续优化。",
-    cta: "开始免费体检",
-    href: "/diagnosis",
-    primary: true,
+    eyebrow: "数字获客",
+    title: "让客户找到你，并愿意联系你",
+    services: [
+      { Icon: Globe2, title: "企业网站建设", desc: "适合新企业、旧网站重做和海外市场入口建设。", items: ["品牌与目标客户定位", "中英文及多语言内容结构", "手机与电脑端设计", "咨询表单与转化跟踪"] },
+      { Icon: SearchCheck, title: "网站优化与SEO", desc: "适合已有网站但流量少、咨询少的企业。", items: ["技术与速度优化", "Google搜索内容结构", "服务页、案例与FAQ", "AI搜索可理解内容"] },
+      { Icon: Megaphone, title: "Google Ads广告", desc: "适合需要快速获得精准搜索流量的企业。", items: ["关键词与竞争分析", "广告账户与系列搭建", "落地页和转化追踪", "持续优化获客成本"] },
+      { Icon: MapPinned, title: "地图商铺与本地获客", desc: "适合门店、本地服务和有明确服务区域的企业。", items: ["Google Business Profile", "Apple Maps、Bing、Yelp", "中国及当地常用地图平台", "资料、图片、评价与排名优化"] },
+    ],
   },
   {
-    tag: "优化",
-    title: "网站转化优化",
-    audience: "已经有网站，但客户看了不联系。",
-    items: ["优化首页和服务页", "强化案例和信任模块", "补充FAQ和服务流程", "完善联系入口"],
-    goal: '让网站从"展示资料"变成"客户咨询入口"。',
-    cta: "咨询优化方案",
-    href: "/contact",
-    primary: false,
-  },
-  {
-    tag: "AI内容",
-    title: "AI搜索内容优化",
-    audience: "希望被Google、AI搜索、ChatGPT类工具更容易推荐。",
-    items: ["整理企业介绍和产品说明", "优化服务优势表达", "补充行业问答内容", "调整搜索内容结构"],
-    goal: "让企业内容更容易被搜索和AI识别，提升未来被推荐的机会。",
-    cta: "了解AI内容优化",
-    href: "/contact",
-    primary: false,
+    eyebrow: "品牌与印刷",
+    title: "让产品和销售资料更有说服力",
+    services: [
+      { Icon: BookOpen, title: "样本册与产品目录", desc: "适合制造、贸易、批发、展会及销售团队。", items: ["内容策划与文案梳理", "产品摄影与图片处理", "中英文多语言排版", "印前检查与印刷交付"] },
+      { Icon: Box, title: "包装与商业印刷品", desc: "适合产品品牌升级和线下推广。", items: ["包装盒、标签与贴纸", "折页、海报与名片", "展会和门店物料", "打样、生产与质量跟进"] },
+    ],
   },
 ];
 
@@ -37,44 +25,29 @@ export default function ServicesPage() {
   return (
     <div className="page-inner page-top-pad">
       <div className="page-hero-text">
-        <p className="eyebrow">服务内容</p>
-        <h1 className="page-h1">
-          不是简单做网站，<br />而是帮企业提升客户咨询机会。
-        </h1>
-        <p className="lead">
-          我们先诊断问题，再给解决方案。不盲目上系统，不盲目投广告，先找出最容易产生订单改善的地方。
-        </p>
+        <p className="eyebrow">商镜Global服务体系</p>
+        <h1 className="page-h1">从品牌展示到客户获客，<br />线上线下一起做好。</h1>
+        <p className="lead">根据企业所在国家、目标市场和行业，组合网站、搜索广告、地图商铺、样本册与包装服务。</p>
       </div>
-
-      <div className="services-grid">
-        {services.map((s) => (
-          <article key={s.title} className={`service-card${s.primary ? " service-card--primary" : ""}`}>
-            <div className="service-tag">{s.tag}</div>
-            <h2>{s.title}</h2>
-            <div className="service-block">
-              <p className="service-label">适合企业</p>
-              <p>{s.audience}</p>
-            </div>
-            <div className="service-block">
-              <p className="service-label">服务内容</p>
-              <ul className="service-list">
-                {s.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="service-block">
-              <p className="service-label">目标</p>
-              <p>{s.goal}</p>
-            </div>
-            <a
-              className={`button${s.primary ? " primary" : " secondary"} wide`}
-              href={s.href}
-            >
-              {s.cta} <ArrowRight size={17} />
-            </a>
-          </article>
-        ))}
+      {groups.map((group) => (
+        <section className="service-group" key={group.eyebrow}>
+          <div className="section-title">
+            <p className="eyebrow">{group.eyebrow}</p><h2>{group.title}</h2>
+          </div>
+          <div className="expanded-services-grid">
+            {group.services.map(({ Icon, title, desc, items }) => (
+              <article className="expanded-service-card" key={title}>
+                <Icon size={28} /><h3>{title}</h3><p>{desc}</p>
+                <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+      <div className="service-final-cta">
+        <h2>不知道应该先做哪一项？</h2>
+        <p>告诉我们你的业务、地区和目标客户，我们先帮你判断最值得投入的入口。</p>
+        <a className="button primary" href="/contact">咨询适合我的方案 <ArrowRight size={18} /></a>
       </div>
     </div>
   );

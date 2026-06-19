@@ -1621,13 +1621,17 @@ legend {
   .stage-grid article,
   .method-grid article,
   .method-note,
-  .question-column,
-  .result-column,
   .contact-section > div {
     width: 100%;
     max-width: 330px;
     margin-right: auto;
     margin-left: auto;
+  }
+
+  .question-column,
+  .result-column {
+    width: 100%;
+    max-width: 100%;
   }
 
   h1,

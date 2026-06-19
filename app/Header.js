@@ -1,33 +1,46 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function Header() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const english = pathname.startsWith("/en");
+  const close = () => setMenuOpen(false);
+
+  const links = english
+    ? [
+        ["/en/services", "Services"],
+        ["/en/contact", "Contact"],
+      ]
+    : [
+        ["/services", "服务"],
+        ["/cases", "案例"],
+        ["/diagnosis", "免费诊断"],
+        ["/about", "关于我们"],
+        ["/contact", "联系"],
+      ];
 
   return (
     <header className="site-header">
-      <a className="brand" href="/" aria-label="商镜Global首页">
-        <span className="brand-text">
-          <strong>商镜</strong><span>Global</span>
-        </span>
-        <small>企业订单增长诊断中心</small>
+      <a className="brand" href={english ? "/en" : "/"} aria-label={english ? "Shangjing Global home" : "商镜Global首页"}>
+        <span className="brand-text"><strong>商镜</strong><span>Global</span></span>
+        <small>{english ? "Business Growth Solutions" : "企业获客与品牌增长服务"}</small>
       </a>
       <nav className={menuOpen ? "nav-open" : ""}>
-        <a href="/diagnosis" onClick={() => setMenuOpen(false)}>免费诊断</a>
-        <a href="/services" onClick={() => setMenuOpen(false)}>服务</a>
-        <a href="/cases" onClick={() => setMenuOpen(false)}>案例</a>
-        <a href="/about" onClick={() => setMenuOpen(false)}>关于我们</a>
-        <a href="/contact" onClick={() => setMenuOpen(false)}>联系</a>
+        {links.map(([href, label]) => <a key={href} href={href} onClick={close}>{label}</a>)}
+        <a className="language-link" href={english ? "/" : "/en"} onClick={close}>
+          {english ? "中文" : "EN"}
+        </a>
       </nav>
       <button
         className="nav-toggle"
-        aria-label={menuOpen ? "关闭菜单" : "打开菜单"}
-        onClick={() => setMenuOpen((v) => !v)}
+        aria-label={menuOpen ? (english ? "Close menu" : "关闭菜单") : (english ? "Open menu" : "打开菜单")}
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((value) => !value)}
       >
-        <span />
-        <span />
-        <span />
+        <span /><span /><span />
       </button>
     </header>
   );
