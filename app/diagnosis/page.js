@@ -127,7 +127,15 @@ export default function DiagnosisPage() {
   useEffect(() => {
     if (allAnswered && advice) {
       try {
-        localStorage.setItem("shangjing_diagnosis", JSON.stringify({ score, label: advice.label, title: advice.title }));
+        localStorage.setItem(
+          "shangjing_diagnosis",
+          JSON.stringify({
+            score,
+            label: advice.label,
+            title: advice.title,
+            answers,
+          }),
+        );
       } catch (_) {}
     }
   }, [allAnswered, score, advice]);

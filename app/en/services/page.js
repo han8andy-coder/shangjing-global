@@ -1,5 +1,11 @@
 import { ArrowRight } from "lucide-react";
 
+export const metadata = {
+  title: "Business Growth Services",
+  description:
+    "Explore website development, SEO, Google Ads, local listings, catalogs, packaging and commercial print services from Shangjing Global.",
+};
+
 const services = [
   ["Business Website Development", "Brand positioning, multilingual information architecture, responsive design and inquiry tracking."],
   ["Website Conversion & SEO", "Technical improvements, Google-ready content, service pages, case studies, FAQs and stronger calls to action."],

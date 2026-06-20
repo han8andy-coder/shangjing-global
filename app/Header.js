@@ -25,13 +25,16 @@ export default function Header() {
   return (
     <header className="site-header">
       <a className="brand" href={english ? "/en" : "/"} aria-label={english ? "Shangjing Global home" : "商镜Global首页"}>
-        <span className="brand-text"><strong>商镜</strong><span>Global</span></span>
+        <span className="brand-text">
+          <strong>{english ? "Shangjing" : "商镜"}</strong>
+          <span>Global</span>
+        </span>
         <small>{english ? "Business Growth Solutions" : "企业获客与品牌增长服务"}</small>
       </a>
       <nav className={menuOpen ? "nav-open" : ""}>
         {links.map(([href, label]) => <a key={href} href={href} onClick={close}>{label}</a>)}
         <a className="language-link" href={english ? "/" : "/en"} onClick={close}>
-          {english ? "中文" : "EN"}
+          {english ? "Chinese" : "EN"}
         </a>
       </nav>
       <button

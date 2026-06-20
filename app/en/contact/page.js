@@ -1,6 +1,11 @@
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
+import LeadForm from "../../components/LeadForm";
 
-const message = encodeURIComponent("Hello Shangjing Global, I would like to discuss website, advertising, local maps, catalog, packaging or print services for my business.");
+export const metadata = {
+  title: "Contact",
+  description:
+    "Tell Shangjing Global about your business, market and growth challenge. Start a conversation about websites, advertising, local listings or print.",
+};
 
 export default function EnglishContact() {
   return (
@@ -14,14 +19,7 @@ export default function EnglishContact() {
             {["Website development or optimization", "Google Ads and lead generation", "Local maps and business profiles", "Catalogs, packaging and commercial print"].map((item) => <li key={item}><CheckCircle2 size={18} />{item}</li>)}
           </ul>
         </div>
-        <div className="contact-form-card english-contact-card">
-          <p className="form-title">Speak with our team</p>
-          <p>Start a WhatsApp conversation and include your company name, website, market and the service you are interested in.</p>
-          <a className="button primary wide" href={`https://wa.me/13475768888?text=${message}`} target="_blank" rel="noreferrer">
-            Contact on WhatsApp <ArrowRight size={18} />
-          </a>
-          <p className="contact-number">WhatsApp: +1 347-576-8888</p>
-        </div>
+        <LeadForm language="en" />
       </div>
     </div>
   );
