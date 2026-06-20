@@ -6,12 +6,12 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET(request) {
-  if (!isAdminRequest(request)) {
+  if (!await isAdminRequest(request)) {
     return NextResponse.json({ ok: false }, { status: 401 });
   }
 
   const url = new URL(request.url);
-  const leads = listLeads({
+  const leads = await listLeads({
     status: url.searchParams.get("status") || "",
     search: url.searchParams.get("search") || "",
   });

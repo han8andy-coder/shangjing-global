@@ -55,7 +55,7 @@ export async function POST(request) {
       );
     }
 
-    const result = resetAdminPassword(newPassword);
+    const result = await resetAdminPassword(newPassword);
     if (!result.ok) {
       return NextResponse.json(result, { status: 400 });
     }

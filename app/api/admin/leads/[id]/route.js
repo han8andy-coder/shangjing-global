@@ -6,11 +6,11 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET(request, { params }) {
-  if (!isAdminRequest(request)) {
+  if (!await isAdminRequest(request)) {
     return NextResponse.json({ ok: false }, { status: 401 });
   }
   const { id } = await params;
-  const result = getLead(id);
+  const result = await getLead(id);
   if (!result) {
     return NextResponse.json({ ok: false }, { status: 404 });
   }
@@ -18,12 +18,12 @@ export async function GET(request, { params }) {
 }
 
 export async function PATCH(request, { params }) {
-  if (!isAdminRequest(request)) {
+  if (!await isAdminRequest(request)) {
     return NextResponse.json({ ok: false }, { status: 401 });
   }
   const { id } = await params;
   const payload = await request.json();
-  const result = updateLead(id, payload);
+  const result = await updateLead(id, payload);
   if (!result) {
     return NextResponse.json({ ok: false }, { status: 404 });
   }

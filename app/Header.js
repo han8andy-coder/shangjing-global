@@ -1,13 +1,18 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const english = pathname.startsWith("/en");
   const close = () => setMenuOpen(false);
+
+  useEffect(() => {
+    fetch("/api/user/me").then(r => r.json()).then(({ user }) => setIsLoggedIn(!!user)).catch(() => {});
+  }, []);
 
   const links = english
     ? [
@@ -36,6 +41,13 @@ export default function Header() {
         <a className="language-link" href={english ? "/" : "/en"} onClick={close}>
           {english ? "Chinese" : "EN"}
         </a>
+        {!english && (
+          isLoggedIn ? (
+            <a href="/account" className="nav-link" onClick={close}>我的账户</a>
+          ) : (
+            <a href="/login" className="nav-link" onClick={close}>登录</a>
+          )
+        )}
       </nav>
       <button
         className="nav-toggle"

@@ -22,7 +22,7 @@ function formatDate(value) {
 export default async function LeadDetailPage({ params }) {
   await requireAdminPage();
   const { id } = await params;
-  const result = getLead(id);
+  const result = await getLead(id);
   if (!result) notFound();
   const { lead, activities } = result;
 

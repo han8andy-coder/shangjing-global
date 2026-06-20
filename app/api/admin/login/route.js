@@ -42,7 +42,7 @@ export async function POST(request) {
     }
 
     const { password } = await request.json();
-    if (!passwordMatches(password)) {
+    if (!await passwordMatches(password)) {
       return NextResponse.json(
         { ok: false, error: "密码不正确。" },
         { status: 401 },
@@ -51,7 +51,7 @@ export async function POST(request) {
 
     clearAttempts(request);
     const response = NextResponse.json({ ok: true });
-    response.cookies.set(SESSION_COOKIE, createSessionToken(), {
+    response.cookies.set(SESSION_COOKIE, await createSessionToken(), {
       httpOnly: true,
       sameSite: "lax",
       secure: process.env.NODE_ENV === "production",

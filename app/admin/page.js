@@ -17,7 +17,7 @@ function formatDate(value) {
 
 export default async function AdminDashboardPage() {
   await requireAdminPage();
-  const { totals, byStatus, recent } = getDashboardData();
+  const { totals, byStatus, recent } = await getDashboardData();
   const statusCounts = Object.fromEntries(
     byStatus.map((item) => [item.status, item.count]),
   );

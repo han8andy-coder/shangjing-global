@@ -24,7 +24,7 @@ export default async function LeadsPage({ searchParams }) {
   const query = await searchParams;
   const status = String(query.status || "");
   const search = String(query.search || "");
-  const leads = listLeads({ status, search });
+  const leads = await listLeads({ status, search });
 
   return (
     <div className="admin-app">

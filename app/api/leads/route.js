@@ -45,7 +45,7 @@ export async function POST(request) {
       );
     }
 
-    const result = createLead(validation.lead);
+    const result = await createLead(validation.lead);
     return NextResponse.json({ ok: true, ...result }, { status: 201 });
   } catch (error) {
     console.error("Lead submission failed:", error);

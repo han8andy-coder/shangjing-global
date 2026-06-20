@@ -136,6 +136,17 @@ export default function DiagnosisPage() {
             answers,
           }),
         );
+        fetch("/api/user/me")
+          .then((r) => r.json())
+          .then(({ user }) => {
+            if (!user) return;
+            return fetch("/api/user/diagnoses", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ score, label: advice.label, title: advice.title, answers }),
+            });
+          })
+          .catch(() => {});
       } catch (_) {}
     }
   }, [allAnswered, score, advice]);
